@@ -25,10 +25,10 @@ function Login() {
         evt.preventDefault()
         try { 
             const res = await axios.post("https://drive-accessible-pictures-send.trycloudflare.com/auth/login", formLogin)
-        console.log(res)
-        const {id, content, isdone, userId, createdAt, updatedAt, accessToken} = res.data
+        console.log(res.data)
+        const {id, content, isdone, userId, createdAt, updatedAt, token} = res.data.user
         setUser({id, content, isdone, userId, createdAt, updatedAt})
-        setToken(accessToken)
+        setToken(token)
         console.log(formLogin)
         navigate('/todos')
             
