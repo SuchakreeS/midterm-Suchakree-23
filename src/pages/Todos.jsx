@@ -8,6 +8,7 @@ function Todos() {
 
   const [todo, setTodo] = useState([])
   const token = useUserStore((state) => state.token)
+  const [add, useAdd] = useState("")
   console.log(token)
 
   useEffect(() => {
@@ -46,11 +47,12 @@ const todoList = todo.map((item) => item)
         <input type='text' placeholder='new task'
         className='text-2xl p-2 w-full'/>
         <button className='text-2xl bg-[#5181ec] p-2 rounded-2xl'>Add</button>
-      </form>``
+      </form>
         <div className='flex-col basis-full w-full text-center text-2xl text-white mt-6'>
         {todoList.map((item)=><div key="item.id">{item.content}
           <button className='bg-[#343434] ml-10 mt-3 text-[#939393] p-2 rounded-2xl'>Edit</button>
           <button className=' ml-4 text-[#939393] p-2 rounded-2xl'>Delete</button>
+          <input type="checkbox" />
         </div>)}
         </div>
     </div>
